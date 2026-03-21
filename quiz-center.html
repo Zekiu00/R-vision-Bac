@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Quiz - Revision Bac</title>
+    <meta name="theme-color" content="#12222d" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Revision Bac" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="quiz-center">
+    <div class="page-shell solo-quiz-shell">
+      <nav class="subject-switch" aria-label="Choix de la matiere">
+        <a class="subject-pill" data-subject-link="maths" href="./quiz-center.html?subject=maths">Maths</a>
+        <a class="subject-pill" data-subject-link="histoire" href="./quiz-center.html?subject=histoire">Histoire</a>
+        <a class="subject-pill" data-subject-link="geographie" href="./quiz-center.html?subject=geographie">Geographie</a>
+        <a class="subject-pill" data-subject-link="ses" href="./quiz-center.html?subject=ses">SES</a>
+      </nav>
+
+      <header class="hero">
+        <p class="eyebrow">Quiz plein ecran</p>
+        <h1 id="quiz-page-title">Quiz</h1>
+        <p class="hero-copy" id="quiz-page-copy">Une page uniquement pour t'entrainer sans le reste du cours.</p>
+        <div class="hero-actions">
+          <a class="button primary" id="back-to-course" href="./index.html">Retour au cours</a>
+        </div>
+      </header>
+
+      <main class="solo-quiz-layout">
+        <section class="panel training-panel">
+          <div class="quiz-head">
+            <h3>Mode de quiz</h3>
+            <div class="quiz-toolbar">
+              <select id="quiz-mode" class="quiz-select"></select>
+              <button class="button primary quiz-button" id="new-quiz" type="button">Nouveau quiz</button>
+            </div>
+          </div>
+          <div id="quiz-box" class="quiz-box"></div>
+        </section>
+
+        <section class="panel training-panel">
+          <div class="training-head">
+            <div>
+              <p class="section-tag">Revision ciblee</p>
+              <h2>Mes erreurs</h2>
+            </div>
+            <p class="training-copy">Les questions ratees restent ici pour refaire les notions fragiles.</p>
+          </div>
+          <div id="mistakes-box" class="mistakes-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./subject-content.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        },
+        svg: {
+          fontCache: "global"
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script src="./quiz-generator.js"></script>
+    <script src="./script.js"></script>
+    <script src="./quiz-center.js"></script>
+  </body>
+</html>
